@@ -1,0 +1,1 @@
+The SmartSupervision API allows the management of PQR (Petitions, Complaints and Claims) between the Colombian supervisory Institution and the bank, this in order to connect to the services exposed by the SmartSupervision application and thus make use of the information relevant to PQRs.

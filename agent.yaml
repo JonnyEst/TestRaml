@@ -1,0 +1,28 @@
+apiVersion: v0
+kind: Pod
+metadata:
+  labels:
+    name: grapi-agent
+spec:
+  securityContext:
+    runAsUser: 1000
+  containers:
+    - name: grapi-agent
+      image: globaldevtools.bbva.com:5000/piaas/agent-grapi-cy:0.0.1
+      tty: true
+      resources:
+        limits:
+          memory: 3072Mi
+        requests:
+          memory: 2048Mi
+      command:
+        - cat
+  volumes:
+    - name: 'docker-cfg'
+      secret:
+        secretName: registrypullsecret
+        items:
+          - key: .dockerconfigjson
+            path: config.json
+  imagePullSecrets:
+    - name: registrypullsecret

@@ -1,0 +1,44 @@
+#%RAML 1.0
+title: Count
+version: v0.1.0
+description: !include docs/apiDescription.md
+baseUri: https://www.bbvaapis.com/commission/v0/commission/v0
+
+uses:
+  data: types/data.raml
+  accountBank: types/data/accountBank.raml
+  dataBank: types/data/dataBank.raml
+  accountType: types/data/accountType.raml
+  enum: types/data/enum.raml
+
+resourceTypes:
+  collection: !include ../glapi-global-apis-commons-commons/resourceTypes/collection.raml
+
+/commission:
+  description: |
+      The colaboratorid is used to validate the business-hours of the corresponding colaborator.
+  type: collection
+  post:
+      description: |
+        This web service makes the shipments of issues from the bank to the Superfinanciera of Colombia.
+      body:
+        application/json:
+          example: !include examples/data/post_request.json
+          type: data.data
+      headers:
+        Authorization:
+           displayName: Authorization
+           description: Temporary user access code.
+           type: string
+           required: true
+           example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ5MjU2NTY1LCJqdGkiOiJiYjk4YjUxMjJmZTA0OWM5ODUxOGZlNjhkMmI0N2FiMyIsInVzZXJfaWQiOjIxNH0.OQm9hegrTiX6Krij369tQ-8_SYBtXsPMxpv_8GSA_zg
+      responses:
+        201:
+          description: Created.
+          body:
+            application/json:
+              type: object
+              example: !include examples/data/post_201.json
+              properties:
+                  data:
+                    type: data.data

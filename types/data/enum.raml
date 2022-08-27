@@ -1,0 +1,27 @@
+#%RAML 1.0 Library
+uses:
+  annotations: ../../../glapi-global-apis-commons-commons/annotations/annotationsLibrary.raml
+
+types:
+  enum:
+    type: object
+    properties:
+      id:
+        (annotations.bindingDefinition):
+          - method : "POST"
+            input : "OPTIONAL"
+            output : "OPTIONAL"
+        type: string
+        description: |
+          Type of games.
+        required: false     
+      name:
+        (annotations.bindingDefinition):
+          - method : "POST"
+            input : "OPTIONAL"
+            output : "OPTIONAL"
+        type: string
+        enum: [CORRIENTE, AHORROS]
+        (annotations.enumDescription):
+          - CORRIENTE: Account corrient. 
+          - AHORROS: Account ahorros.

@@ -1,0 +1,13 @@
+{
+  "account": {
+    "number": "12123",
+    "accountType": {
+      "id": "18327",
+      "name": "CORRIENTE"
+    }
+  },
+  "bank": {
+    "id": "272626",
+    "name": "BBVA"
+  }
+}

@@ -1,0 +1,28 @@
+#%RAML 1.0 Library
+uses:
+  annotations: ../../glapi-global-apis-commons-commons/annotations/annotationsLibrary.raml
+  accountBank: data/accountBank.raml
+  dataBank: data/dataBank.raml
+
+types:
+  data:
+    type: object
+    properties:
+      account:
+        (annotations.bindingDefinition):    
+          - method: "POST"
+            input: "REQUIRED"
+            output: "REQUIRED"
+        type: accountBank.accountBank   
+        description: |
+          Type of games.
+        required: false
+      bank:
+        (annotations.bindingDefinition):    
+          - method: "POST"
+            input: "REQUIRED"
+            output: "OPTIONAL"
+        type: dataBank.dataBank   
+        description: |
+          Type of games.
+        required: false  

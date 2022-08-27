@@ -1,0 +1,26 @@
+#%RAML 1.0 Library
+uses:
+  annotations: ../../../glapi-global-apis-commons-commons/annotations/annotationsLibrary.raml
+
+types:
+  dataBank:
+    type: object
+    properties:
+      id:
+        (annotations.bindingDefinition):    
+            - method: "POST"
+              input: "REQUIRED"
+              output: "OPTIONAL"
+        type: string   
+        description: |
+          Type of games.
+        required: false
+      name:
+        (annotations.bindingDefinition):    
+            - method: "POST"
+              input: "OPTIONAL"
+              output: "OPTIONAL"
+        type: string   
+        description: |
+          Type of games.
+        required: false  

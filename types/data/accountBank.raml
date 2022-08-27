@@ -1,0 +1,27 @@
+#%RAML 1.0 Library
+uses:
+  annotations: ../../../glapi-global-apis-commons-commons/annotations/annotationsLibrary.raml
+  enum: enum.raml
+
+types:
+  accountBank:
+    type: object
+    properties:
+      number:
+        (annotations.bindingDefinition):    
+          - method: "POST"
+            input: "REQUIRED"
+            output: "REQUIRED"
+        type: string    
+        description: |
+          Type of games.
+        required: false
+      accountType:
+        (annotations.bindingDefinition):    
+          - method: "POST"
+            input: "OPTIONAL"
+            output: "OPTIONAL"
+        type: enum.enum 
+        description: |
+          Type of games.
+        required: false
